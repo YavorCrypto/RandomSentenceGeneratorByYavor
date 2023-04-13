@@ -32,7 +32,7 @@ def add(list,elements):
 
 
 print("\nTo edit lists use those commands:\n")
-print("!check [list]/all\n!add [list] [elements]\n\nTo start the generator use:\n!start")
+print("!check [list]/all\n!add [list] [element]\n\nTo start the generator use:\n!start")
 
 command = input()
 while True:
