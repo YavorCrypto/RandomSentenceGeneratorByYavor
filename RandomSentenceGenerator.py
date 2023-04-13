@@ -10,9 +10,6 @@ dictionary = {
     "detail": ["near the river", "at home", "in the park"]
             }
 
-def check(list):
-    print(dictionary[list])
-counter = 0
 def start():
     name = random.choice(dictionary["name"])
     place = random.choice(dictionary["place"])
@@ -24,38 +21,28 @@ def start():
     print("Click [Enter] to generate a new one./[Esc] to end the program.")
 
 
-
-def add(list,elements):
-    dictionary[list].append(elements)
-
-
-
-
 print("\nTo edit lists use those commands:\n")
 print("!check [list]/all\n!add [list] [element]\n\nTo start the generator use:\n!start")
 
 command = input()
+break_ = False
 while True:
-    try:
-        command = command.split()
-        if command[0] == "!check":
-            if command[1] == "all":
-                print(dictionary)
-            else:
-                check(command[1])
-        elif command[0] == "!add":
-            add(command[1],command[2])
-        elif command[0] == "!start":
-            start()
-            while True:
-                if keyboard.read_key() == "enter":
-                    start()
-                if keyboard.read_key() == "esc":
-                    break_ = True
-                    break
-        if break_ == True:
-            break
-
-    except:
-        continue
+    command = command.split()
+    if command[0] == "!check":
+        if command[1] == "all":
+            print(dictionary)
+        else:
+            print(dictionary[command[1]])
+    elif command[0] == "!add":
+        dictionary[command[1]].append(command[2])
+    elif command[0] == "!start":
+        start()
+        while True:
+            if keyboard.read_key() == "enter":
+                start()
+            if keyboard.read_key() == "esc":
+                break_ = True
+                break
+    if break_ == True:
+        break
     command = input()
